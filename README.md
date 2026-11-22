@@ -31,7 +31,7 @@ A live dashboard that tracks cost and profit for every manufacturing order. Prod
 
 ## Business impact
 
-- **Better pricing.** You can see each product's price next to its real cost. Three products turned out to be selling below cost, which made them clear repricing candidates.
+- **Better pricing and contracts.** You can see each product's price next to its real cost, which helps set fair, reasonable prices and negotiate better contracts in the future.
 - **Problems show up right away.** A bad production run shows up as a red bar the same day, not at month end. For example, one order cost $8.21 per unit against a $3.21 price, while other runs of the same product cost about $2.
 - **Consistent costs.** Comparing runs of the same product shows which ones are unstable. One product's cost ranged from $1.33 to $8.21 per unit.
 - **Finding bottlenecks.** Costs are broken down by process step, so it's clear where to focus efficiency work.
