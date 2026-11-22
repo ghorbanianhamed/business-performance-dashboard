@@ -38,22 +38,6 @@ A live dashboard that tracks cost and profit for every manufacturing order. Prod
 - **Knowing which clients pay off.** The biggest client by volume earned a 22% margin, against 48% for another.
 - **Staying on target.** Every month is checked against a 30% margin target and against fixed costs to show break-even.
 
-## Technical skills
-
-**Google Workspace**
-- Built the data model in Google Sheets: order costs, prices, monthly summaries and a cost breakdown by process step.
-- Built the Looker Studio report on a live Sheets connection, with calculated fields, color-coded margin tiers, KPI cards and filters.
-
-**ERP API integration**
-- Pulled production costs from the ERP through its API and matched them to sales records by order number.
-- Cleaned and checked the data, for example missing dates and divide-by-zero rows.
-
-**Analysis and reporting**
-- Cost tracking per order, per unit and per process step.
-- Margin, break-even and fixed-cost analysis.
-- Finding the cause of loss-making orders.
-- Weekly and monthly reports for management.
-
 ## How it works
 
 ```mermaid
