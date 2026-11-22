@@ -1,0 +1,3 @@
+# Exclude every file from GitHub's language statistics, so the repo page
+# lists the project's skills (README badges and topics) instead of a code-language bar.
+* linguist-vendored

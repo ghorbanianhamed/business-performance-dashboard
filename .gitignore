@@ -1,0 +1,5 @@
+# Source workbooks stay private; only the prepared dataset is published.
+*.xlsx
+*.xls
+__pycache__/
+.DS_Store

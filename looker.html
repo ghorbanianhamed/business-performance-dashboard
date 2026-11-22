@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Business Performance Dashboard · Looker Studio</title>
+<meta name="description" content="The original Business Performance Dashboard, built in Google Sheets and Looker Studio.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  .looker-frame { position: relative; width: 100%; aspect-ratio: 16 / 10; min-height: 520px; }
+  .looker-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; border-radius: var(--r); background: var(--surface); }
+  .actions { display: flex; gap: 8px; flex-wrap: wrap; }
+  a.btn { text-decoration: none; display: inline-block; }
+  a { color: var(--accent); }
+  @media (max-width: 700px) { .looker-frame { aspect-ratio: auto; height: 80vh; min-height: 0; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="title">
+      <p class="eyebrow">Contract manufacturing · Profitability</p>
+      <h1>Business Performance Dashboard</h1>
+      <p class="sub">The original report, built in Google Sheets and Looker Studio. Opens on September 2026; use the Year, Month, Client, Product issued and MO# controls inside the report to change the view.</p>
+    </div>
+    <div class="actions">
+      <a class="btn" href="index.html">Interactive rebuild</a>
+      <a class="btn" href="https://datastudio.google.com/u/0/reporting/27eedb84-68a2-4675-8c74-f4384aaaa08b/page/fxM4F?params=%7B%22df10%22:%22include%25EE%2580%25800%25EE%2580%2580IN%25EE%2580%258020260901%22%7D" target="_blank" rel="noopener">Open in Looker Studio ↗</a>
+    </div>
+  </header>
+
+  <section class="card panel">
+    <div class="looker-frame">
+      <iframe
+        title="Business Performance Dashboard in Looker Studio"
+        src="https://datastudio.google.com/embed/u/0/reporting/27eedb84-68a2-4675-8c74-f4384aaaa08b/page/fxM4F?params=%7B%22df10%22:%22include%25EE%2580%25800%25EE%2580%2580IN%25EE%2580%258020260901%22%7D"
+        allowfullscreen
+        sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+    </div>
+    <p class="note">If the report doesn't load here, <a href="https://datastudio.google.com/u/0/reporting/27eedb84-68a2-4675-8c74-f4384aaaa08b/page/fxM4F?params=%7B%22df10%22:%22include%25EE%2580%25800%25EE%2580%2580IN%25EE%2580%258020260901%22%7D" target="_blank" rel="noopener">open it directly in Looker Studio</a>.</p>
+  </section>
+
+  <footer class="foot">
+    <p>Data source: Google Sheets (cost-tracking model fed by the ERP API), connected to Looker Studio with calculated fields for gross profit, gross margin and margin tier.</p>
+  </footer>
+</div>
+</body>
+</html>

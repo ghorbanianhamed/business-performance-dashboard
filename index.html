@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Business Performance Dashboard</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Gross margin by manufacturing order, client and month. Rebuilt from a Google Sheets and Looker Studio dashboard.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="title">
+      <p class="eyebrow">Contract manufacturing · Profitability</p>
+      <h1>Business Performance Dashboard</h1>
+      <p class="sub">Revenue, production cost and gross margin for every manufacturing order (MO). Production costs are tracked in the ERP; prices and units in Google Sheets.</p>
+    </div>
+    <div class="actions">
+      <a class="btn" href="https://datastudio.google.com/u/0/reporting/27eedb84-68a2-4675-8c74-f4384aaaa08b/page/fxM4F?params=%7B%22df10%22:%22include%25EE%2580%25800%25EE%2580%2580IN%25EE%2580%258020260901%22%7D" target="_blank" rel="noopener">Looker Studio version ↗</a>
+      <button type="button" id="reset" class="btn">Reset filters</button>
+    </div>
+  </header>
+
+  <section class="filters" id="filters" aria-label="Filters"></section>
+
+  <section class="summary">
+    <div class="donut-card card" id="tier-card">
+      <h2 class="card-h">Orders by margin tier</h2>
+      <div class="donut-row">
+        <svg id="donut" viewBox="0 0 120 120" role="img" aria-label="Share of orders by margin tier"></svg>
+        <ul class="legend" id="tier-legend"></ul>
+      </div>
+    </div>
+    <div class="kpis" id="kpis">
+      <div class="kpi card"><span class="k">Revenue</span><span class="v" id="k-rev">—</span><span class="d" id="k-n"></span></div>
+      <div class="kpi card"><span class="k">MO cost</span><span class="v" id="k-cost">—</span><span class="d">ERP production cost</span></div>
+      <div class="kpi card"><span class="k">Gross profit</span><span class="v" id="k-gp">—</span><span class="d" id="k-be"></span></div>
+      <div class="kpi card"><span class="k">Gross margin</span><span class="v" id="k-gm">—</span><span class="d" id="k-gm-d"></span></div>
+    </div>
+  </section>
+
+  <section class="card panel" id="mo-panel">
+    <div class="panel-h">
+      <div>
+        <h2>Gross profit by manufacturing order</h2>
+        <p class="note">Bars show gross profit, colored by margin tier and labeled with gross margin. Lines show units produced and cost per unit.</p>
+      </div>
+      <div class="seg" role="group" aria-label="Sort orders">
+        <button type="button" data-sort="mo" class="on">By MO#</button>
+        <button type="button" data-sort="gp">By profit</button>
+        <button type="button" data-sort="gm">By margin</button>
+      </div>
+    </div>
+    <div class="chart-scroll"><div class="chart-box" id="mo-box"><canvas id="mo-chart"></canvas></div></div>
+  </section>
+
+  <div class="grid2">
+    <section class="card panel" id="trend-panel">
+      <h2>Monthly trend</h2>
+      <p class="note">Revenue and MO cost by production month, with gross margin against the 30% target. Ignores the month filter.</p>
+      <div class="chart-box short"><canvas id="trend-chart"></canvas></div>
+    </section>
+    <section class="card panel" id="client-panel">
+      <h2>Clients</h2>
+      <p class="note">Ranked by gross profit for the current selection.</p>
+      <div class="table-scroll">
+        <table class="tbl" id="client-table">
+          <thead><tr><th>Client</th><th class="n">MOs</th><th class="n">Revenue</th><th class="n">Gross profit</th><th class="n">GM</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <footer class="foot">
+    <p>Data: <span id="data-range">all manufacturing orders in the workbook</span>. Client, product and part identifiers are pseudonymized. Original built in Google Sheets and Looker Studio; this page is a static rebuild in HTML, CSS and Chart.js.</p>
+  </footer>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
